@@ -8,13 +8,18 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import "./assets/styles/bootstrap.custom.css";
+
+import ProductScreen from "./screens/ProductScreen.jsx";
+// import "./assets/styles/bootstrap.custom.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import "./assets/styles/index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index element={<HomeScreen />} />
+      <Route index={true} element={<HomeScreen />} />
+      <Route path="/product/:id" element={<ProductScreen />} />
     </Route>
   )
 );
