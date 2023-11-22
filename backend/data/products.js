@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Chateau ",
     image: "/images/chateau.png",
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "2",
     name: "etoile",
     image: "/images/etoile.png",
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: "3",
     name: "Port Wine",
     image: "/images/port.png",
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "4",
     name: "Rose rivera",
     image: "/images/rose riviera.png",
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "5",
     name: "Sample",
     image: "/images/sample.jpg",
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: "6",
     name: "Sweet Ambosiia",
     image: "/images/sweet ambosiia.png",
     description:
@@ -78,7 +72,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "7",
     name: "varley harvest",
     image: "/images/varley harvest.png",
     description:

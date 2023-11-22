@@ -1,4 +1,5 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+import reviewSchema from "./reviewModel.js";
 const productSchema = new mongoose.Schema(
   {
     user: {
@@ -14,6 +15,14 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "A wine must have an image"],
     },
+    brand: {
+      type: String,
+      required: [true, "A wine must have an brand"],
+    },
+    category: {
+      type: String,
+      required: [true, "A wine must have an brand"],
+    },
     description: {
       type: String,
       required: [true, "A wine must have a description"],
@@ -23,7 +32,7 @@ const productSchema = new mongoose.Schema(
       required: [true, "A wine must price"],
     },
     images: {
-      type: [string],
+      type: [String],
     },
     alcoholContent: {
       type: Number,
