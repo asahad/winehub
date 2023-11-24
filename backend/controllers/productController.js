@@ -1,6 +1,5 @@
 import Product from "../models/productModel.js";
 import asyncHandler from "../middleware/asyncHandler.js";
-
 // Fetch all products
 // route- GET/api/products
 // access-Public
@@ -20,5 +19,4 @@ const getProductById = asyncHandler(async (req, res) => {
   res.status(404);
   throw new Error("Resource not found");
 });
-
 export { getProducts, getProductById };
