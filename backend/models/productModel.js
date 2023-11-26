@@ -49,7 +49,7 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
-    countInTock: {
+    countInStock: {
       type: Number,
       required: [true, "A wine must have the number in stock"],
       default: 0,
