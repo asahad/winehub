@@ -12,18 +12,20 @@ import store from "../store.js";
 import { Provider } from "react-redux";
 import ProductScreen from "./screens/ProductScreen.jsx";
 import CartScreen from "./screens/CartScreen.jsx";
-// import "./assets/styles/bootstrap.custom.css";
+//import "./assets/styles/bootstrap.custom.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "./assets/styles/index.css";
+import LoginScreen from "./screens/LoginScreen.jsx";
+import RegisterScreen from "./screens/RegisterScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} element={<HomeScreen />} />
       <Route path="/product/:id" element={<ProductScreen />} />
-      {/* <Route path="/product/:id" element={<ProductScreen />} /> */}
       <Route path="/cart" element={<CartScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
+      <Route path="/register" element={<RegisterScreen />} />
     </Route>
   )
 );
