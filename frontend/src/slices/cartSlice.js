@@ -5,11 +5,7 @@ import { updateCart } from "../utils/cartUtils";
 const initialState = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : {
-      cartItems: [],
-      itemsPrice: 0,
-      shippingPrice: 0,
-      taxPrice: 0,
-      totalPrice: 0,
+      cartItems:[], shippingAddress: {}, paymentMethod: 'payPal'
     };
 
 // Redux slice for cart
@@ -33,9 +29,14 @@ const cartSlice = createSlice({
     removeFromCart: (state, action)=>{
       state.cartItems=state.cartItems.filter((x)=>x._id!==action.payload)
       return updateCart(state)
+    },
+
+    saveShippingAddress:(state, action)=>{
+      state.shippingAddress=action.payload;
+      return updateCart(state)
     }
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart ,saveShippingAddress} = cartSlice.actions;
 export default cartSlice.reducer;
