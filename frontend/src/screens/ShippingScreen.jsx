@@ -3,8 +3,9 @@ import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
-// import CheckoutSteps from '../components/CheckoutSteps';
 import { saveShippingAddress } from "../slices/cartSlice";
+import CheckoutSteps from "../components/checkOutSteps";
+// import { saveShippingAddress } from "../slices/cartSlice";
 
 const ShippingScreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -13,7 +14,7 @@ const ShippingScreen = () => {
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
   const [postalCode, setPostalCode] = useState(
-    shippingAddress.postalCode || ""
+  shippingAddress.postalCode || ""
   );
   const [country, setCountry] = useState(shippingAddress.country || "");
 
@@ -75,7 +76,7 @@ const ShippingScreen = () => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="primary" onClick={submitHandler}>
           Continue
         </Button>
       </Form>
