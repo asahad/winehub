@@ -4,9 +4,13 @@ import multer from "multer";
 
 const router = express.Router();
 
+// Storage configuration for multer
+const __dirname = path.resolve();
+console.log(`The dire is ${__dirname}`);
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, "uploads/");
+    const uploadPath = path.join(__dirname, "/frontend/public/images/");
+    cb(null, uploadPath);
   },
   filename(req, file, cb) {
     cb(
@@ -15,8 +19,8 @@ const storage = multer.diskStorage({
     );
   },
 });
-
-function fileFilter(req, file, cb) {
+// Function to check file type
+function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png|webp/;
   const mimetypes = /image\/jpeg|image\/jpg|image\/png|image\/webp/;
 
@@ -30,24 +34,29 @@ function fileFilter(req, file, cb) {
   }
 }
 
-const upload = multer({ storage, fileFilter });
-const uploadSingleImage = upload.single("image");
+// Configure multer
+const upload = multer({
+  storage,
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+});
 
-router.post("/", (req, res) => {
-  uploadSingleImage(req, res, function (err) {
-    if (err) {
-      return res.status(400).send({ message: err.message });
-    }
-    if (req.file) {
-      const imagePath = req.file.path.replace(/\\/g, "/");
-      res.status(200).send({
-        message: "Image uploaded successfully",
-        image: `/${imagePath}`,
-      });
-    } else {
-      res.status(400).send({ message: "No file uploaded" });
-    }
-  });
+// POST route for image upload
+router.post("/", upload.single("image"), (req, res) => {
+  if (req.file) {
+    // Convert absolute file path to relative URL path
+    let filePath = req.file.path;
+    const baseUrl = path.join(__dirname, "/frontend/public/");
+    const relativePath = filePath.replace(baseUrl, "/").replace(/\\/g, "/");
+
+    res.status(200).send({
+      message: "Image uploaded successfully",
+      image: relativePath, // This will be something like '/images/image-name.jpg'
+    });
+  } else {
+    res.status(400).send({ message: "No file uploaded" });
+  }
 });
 
 export default router;
