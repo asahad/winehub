@@ -1,4 +1,4 @@
-import { PRODUCTS_URL,UPLOAD_URL } from "../constants";
+import { PRODUCTS_URL, UPLOAD_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
 export const productsApiSlice = apiSlice.injectEndpoints({
@@ -25,32 +25,32 @@ export const productsApiSlice = apiSlice.injectEndpoints({
     updateProduct: builder.mutation({
       query: (data) => ({
         url: `${PRODUCTS_URL}/${data.productId}`,
-        method: 'PUT',
+        method: "PUT",
         body: data,
       }),
-      invalidatesTags: ['Products'],
+      invalidatesTags: ["Products"],
     }),
     uploadProductImage: builder.mutation({
       query: (data) => ({
         url: `${UPLOAD_URL}`,
-        method: 'POST',
+        method: "POST",
         body: data,
       }),
     }),
     deleteProduct: builder.mutation({
       query: (productId) => ({
         url: `${PRODUCTS_URL}/${productId}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      providesTags: ['Product'],
+      providesTags: ["Product"],
     }),
     createReview: builder.mutation({
       query: (data) => ({
         url: `${PRODUCTS_URL}/${data.productId}/reviews`,
-        method: 'POST',
+        method: "POST",
         body: data,
       }),
-      invalidatesTags: ['Product'],
+      invalidatesTags: ["Product"],
     }),
     getTopProducts: builder.query({
       query: () => `${PRODUCTS_URL}/top`,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   Row,
@@ -25,7 +25,7 @@ const ProductScreen = () => {
     isLoading,
     error,
   } = useGetProductDetailsQuery(productId);
-
+  console.log(product);
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
     navigate("/cart");
