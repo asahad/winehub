@@ -32,3 +32,35 @@
   font-weight: bold; /* Bold price */
   color: #007bff; /* A color that stands out */
 }
+
+/* Styles for the footer */
+.footer {
+  background-color: #343a40; /* Dark background for the footer */
+  color: #ffffff; /* Light color for text */
+  padding: 20px 0; /* Padding for top and bottom */
+  margin-top: 40px; /* Space above the footer */
+}
+
+.footer p {
+  margin: 0; /* Remove default margin */
+  font-size: 1rem; /* Font size for the text */
+}
+
+/* Additional styling can be added here as per your design requirements */
+
+/* Adding Styles for the carousel  */
+.product-carousel .carousel-item {
+  height: 500px; /* Fixed height for the carousel items */
+}
+
+.carousel-image {
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area */
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for caption */
+  right: 0;
+  left: 0;
+  bottom: 20px; /* Positioning the caption */
+}
