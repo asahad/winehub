@@ -1,0 +1,34 @@
+/* Custom CSS file */
+/* This styling for the product cards at home page-homescreen component */
+.product-card {
+  border: 1px solid #e1e1e1; /* Light border for the card */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+}
+
+.product-card-img {
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensures images cover the area nicely */
+  border-top-left-radius: 10px; /* Rounded top-left corner */
+  border-top-right-radius: 10px; /* Rounded top-right corner */
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+  object-fit: cover; /* Keeps the image aspect ratio */
+  transform: scale(1.1);
+}
+
+.product-title {
+  font-size: 1.2rem; /* Slightly larger title */
+  color: #333; /* Darker color for better readability */
+  margin-bottom: 10px; /* Spacing below title */
+}
+
+.product-price {
+  font-weight: bold; /* Bold price */
+  color: #007bff; /* A color that stands out */
+}

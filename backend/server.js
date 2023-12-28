@@ -38,7 +38,7 @@ app.use("/api/upload", uploadRoutes);
 
 // PayPal API route
 app.get("/api/config/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || "YOUR-PAYPAL-CLIENT-ID");
+  res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
 // Static files serving for production
