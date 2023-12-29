@@ -64,3 +64,11 @@
   left: 0;
   bottom: 20px; /* Positioning the caption */
 }
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030; /* High z-index to keep it on top */
+}
