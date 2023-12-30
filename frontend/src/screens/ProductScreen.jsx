@@ -19,7 +19,7 @@ import {
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
- import Meta from "../components/Meta";
+import Meta from "../components/Meta";
 import { addToCart } from "../slices/cartSlice";
 
 const ProductScreen = () => {
@@ -46,8 +46,18 @@ const ProductScreen = () => {
 
   const { userInfo } = useSelector((state) => state.auth);
 
+
   const [createReview, { isLoading: loadingProductReview }] =
     useCreateReviewMutation();
+  const getDeliveryDate = () => {
+    const today = new Date();
+    const deliveryDate = new Date(today);
+
+    deliveryDate.setDate(today.getDate() + 4); // Add 4 days
+
+    const options = { weekday: "short", month: "short", day: "numeric" };
+    return deliveryDate.toLocaleDateString("en-US", options);
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -154,10 +164,16 @@ const ProductScreen = () => {
                       Add To Cart
                     </Button>
                   </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Row>
+                      <Col>{`Delivery by ${getDeliveryDate()}`}</Col>
+                    </Row>
+                  </ListGroup.Item>
                 </ListGroup>
               </Card>
             </Col>
           </Row>
+          {(!userInfo.isAdmin) && (
           <Row className="review">
             <Col md={6}>
               <h2>Reviews</h2>
@@ -221,6 +237,7 @@ const ProductScreen = () => {
               </ListGroup>
             </Col>
           </Row>
+          )}
         </>
       )}
     </>
