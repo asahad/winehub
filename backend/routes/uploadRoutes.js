@@ -6,7 +6,6 @@ const router = express.Router();
 
 // Storage configuration for multer
 const __dirname = path.resolve();
-console.log(`The dire is ${__dirname}`);
 const storage = multer.diskStorage({
   destination(req, file, cb) {
     const uploadPath = path.join(__dirname, "/frontend/public/images/");

@@ -15,22 +15,22 @@ import User from "../models/userModel.js";
       next();
     } catch (error) {
       res.status(401);
-      throw new Error("Not authorized, token failed");
+      throw new Error("Not authorized");
     }
   } else {
     res.status(401);
-    throw new Error("Not authorized, no token");
+    throw new Error("Not authorized");
   }
 });
 
 // Admin MiddleWare
-const admin = (req, res, next) => {
+const admin = asyncHandler((req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {
     res.status(401);
     throw new Error("Not authorized as admin");
   }
-};
+});
 
 export { protect, admin };

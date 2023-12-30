@@ -1,10 +1,12 @@
 import Product from "../models/productModel.js";
 import asyncHandler from "../middleware/asyncHandler.js";
+import dotenv from "dotenv";
+dotenv.config();
 // Fetch all products
 // route- GET/api/products
 // access-admin
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = process.env.pageNumber
+  const pageSize = process.env.PAGINATION_LIMIT;
   const page = Number(req.query.pageNumber) || 1;
   const keyword = req.query.keyword
     ? {
