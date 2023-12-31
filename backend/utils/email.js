@@ -1,11 +1,10 @@
+import mailjetPackage from "node-mailjet";
 import dotenv from "dotenv";
 dotenv.config();
-import mailjetPackage from "node-mailjet";
-
 // Configure Mailjet Mail
 const mailjetClient = mailjetPackage.connect(
   process.env.MAILJET_API_KEY,
-  process.env.MAILJET_SECRET_KEY
+  process.env.MAILJET_API_SECRET_KEY
 );
 
 // Function to send a welcome email
