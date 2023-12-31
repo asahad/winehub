@@ -1,29 +1,10 @@
+// Importing modules and configuring environment
 import User from "../models/userModel.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 import generateToken from "../utils/generateToken.js";
-import sgMail from '@sendgrid/mail'; // Import SendGrid's mail package
-import dotenv from "dotenv";
-dotenv.config();
+import { sendWelcomeEmail } from "../utils/email.js";
 
-// Register user
-// route- POST/api/users/register
-// access-Public
-// Configure SendGrid Mail
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-const sendWelcomeEmail = (userEmail, userName) => {
-  const msg = {
-    to: userEmail, // recipient
-    from: process.env.SENDGRID_VERIFIED_SENDER, // verified sender
-    subject: 'Welcome to WineHubSite!',
-    html: `<h1>Welcome, ${userName}!</h1><p>Thank you for registering with us.</p>`,
-  };
-
-  sgMail.send(msg)
-    .then(() => console.log('Welcome email sent.'))
-    .catch((error) => console.error('Error sending welcome email:', error));
-};
-
+// Function to register a new user
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const userExists = await User.findOne({ email });
@@ -36,11 +17,11 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
-    password, // Make sure password is hashed in the User model's pre-save middleware
+    password, // Ensure password is hashed in the User model's pre-save middleware
   });
 
   if (user) {
-    sendWelcomeEmail(user.email, user.name); // Send the welcome email
+    sendWelcomeEmail(user.email, user.name); // Send the welcome email using Mailjet
     generateToken(res, user._id); // Assuming this function sets the token correctly
 
     res.status(201).json({
@@ -54,8 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid user data");
   }
 });
-
-
 //  Auth user and get token
 // route- POST/api/users/login
 // access-Public
