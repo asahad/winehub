@@ -14,7 +14,7 @@ const sendWelcomeEmail = (userEmail, userName) => {
     Messages: [
       {
         From: {
-          Email: "alhassansahad24@gmail.com", // Replace with your verified Mailjet email
+          Email: "alhassansahad24@gmail.com", // This is verified that is used for mailjet registration. It must be verified by mailjet
           Name: "Winehub",
         },
         To: [
