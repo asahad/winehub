@@ -71,7 +71,7 @@ Hosted on a platform that guarantees reliability and seamless deployment:
 ## Project Architecture
 
 Below is the high-level architecture of the WineHubSite project, showcasing the
-interaction between the frontend, backend, and database components.
+interaction between the frontend, backend, and database components.Detailed architecture can be obtained upon request
 
 ![WineHubSite Architecture](./frontend/public/images/winehubsite-achitecture.jpg "WineHubSite Architecture")
 
