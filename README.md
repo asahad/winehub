@@ -1,8 +1,6 @@
 # WineHubSite
 
-WineHubSite is a robust, full-featured e-commerce platform developed for WinHub
-LLC, designed to elevate the online presence and sales capacity of their wine
-retail business. This application serves as an all-encompassing solution for
+WineHubSite is a robust, full-featured e-commerce platform.This application serves as an all-encompassing solution for
 product discovery, user engagement, and secure transaction processing.The store
 did not have any online platform for sales of products and this affected sales
 and customer reach. So in order to help in that regard, I was conracted to build
